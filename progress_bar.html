@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress bar</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        
+        h2 {
+            text-align: center;
+            margin: 0px 0px 40px;
+            text-transform: uppercase;
+            color: #4caf50;
+            text-decoration: underline;
+        }
+        
+        .progressBarWrapper {
+            width: 55%;
+            height: 100px;
+            margin: auto;
+            position: absolute;
+            inset: 0;
+        }
+        
+        .progressBar {
+            width: 100%;
+            height: 30px;
+            border: 1px dotted green;
+            margin: 0px 0px 42px;
+        }
+        
+        .progress {
+            height: 100%;
+            width: 0px;
+            transition: 0.5s ease-in-out;
+            background-color: #4caf50;
+        }
+        
+        .run {
+            width: 100%;
+        }
+        
+        button {
+            text-transform: capitalize;
+            background-color: #4caf50;
+            color: white;
+            padding: 5px 12px;
+            border: 1px dotted green;
+        }
+        
+        p {
+            display: inline-block;
+            height: 25px;
+            float: right;
+            color: green;
+            border-bottom: 1px dotted green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progressBarWrapper">
+        <h2>Progress bar</h2>
+        <div class="progressBar">
+            <div class="progress"></div>
+        </div>
+        <button onclick="progress()">run</button>
+        <p><span class="progressInPercent">0</span>%</p>
+    </div>
+</body>
+<script>
+    let progress = e => {
+        let randomProgress = Math.floor(Math.random() * 100);
+        let progressIN_Percent = document.getElementsByClassName("progressInPercent")[0];
+        var progress_bar = document.getElementsByClassName("progress")[0];
+        progressIN_Percent.innerText = randomProgress
+        progress_bar.style.width = randomProgress + "%";
+        // if (progress_bar.classList.contains('run')) {
+        //     progress_bar.classList.remove('run')
+        // } else {
+        //     progress_bar.classList.add('run')
+        // }
+    }
+</script>
+
+</html>
